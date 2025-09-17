@@ -150,8 +150,8 @@ suite('Unit Tests', function () {
     test('#typeOf, #notTypeOf', function () {
       assert.typeOf(myCar, 'object');
       assert.typeOf(myCar.model, 'string');
-      assert.typeOf(airlinePlane.wings, 'number');
-      assert.isArray(airlinePlane.engines); 
+      assert.typeOf(airlinePlane.wings, 'string');
+      assert.isArray(airlinePlane.engines, 'array'); 
       assert.typeOf(myCar.wheels, 'number')
     });
     // #18
