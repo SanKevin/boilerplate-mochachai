@@ -155,11 +155,12 @@ suite('Unit Tests', function () {
      assert.typeOf(myCar.wheels, 'number');      // 5
     });
     // #18
-    test('#instanceOf, #notInstanceOf', function () {
-      assert.notInstanceOf(myCar, Plane);
-      assert.instanceOf(airlinePlane, Plane);
-      assert.instanceOf(airlinePlane, Object);
-    });
+    test('#instanceOf, #notInstanceOf', function() {
+    assert.notInstanceOf(myCar, Plane);
+    assert.instanceOf(airlinePlane, Plane);
+    assert.instanceOf(airlinePlane, Object, 'everything is an Object');
+    assert.notInstanceOf(myCar.wheels, String);
+  });
   });
 
   // ----------------------------------------------------------------------------- 
