@@ -21,22 +21,25 @@ suite('Functional Tests', function () {
         assert.equal(res.text, 'hello Guest', 'Response should be "hello Guest"');
         done();
       });
-  });
+  });       
 });
 
 
-    // #2
-    test('Test GET /hello with your name', function (done) {
-      chai
-        .request(server)
-        .keepOpen()
-        .get('/hello?name=xy_z')
-        .end(function (err, res) {
-          assert.fail(res.status, 200);
-          assert.fail(res.text, 'hello xy_z');
-          done();
-        });
-    });
+   // #2
+suite('GET /hello with your name', function () {
+  test('Test GET /hello with your name', function (done) {
+    chai
+      .request(server)
+      .keepOpen()
+      .get('/hello?name=Kevin') // Enviamos tu nombre como query
+      .end(function (err, res) {
+        assert.equal(res.status, 200, 'Response status should be 200');
+        assert.equal(res.text, 'hello Kevin', 'Response should be "hello Kevin"');
+        done();
+      });
+  });
+});
+
     // #3
     test('Send {surname: "Colombo"}', function (done) {
       chai
