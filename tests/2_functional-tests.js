@@ -10,18 +10,20 @@ suite('Functional Tests', function () {
   this.timeout(5000);
   suite('Integration tests with chai-http', function () {
     // #1
-   suite('GET /hello with no name', function () {
-  test('responds with "hello Guest"', function (done) {
-    chai.request(server)
-      .keepOpen()       // mantiene el servidor abierto
-      .get('/hello')    // sin query string
+  suite('GET /hello with no name', function () {
+  test('Test GET /hello with no name', function (done) {
+    chai
+      .request(server)
+      .keepOpen()
+      .get('/hello')
       .end(function (err, res) {
-        assert.equal(res.status, 200, 'Response status should be 200'); // prueba el status
-        assert.equal(res.text, 'hello Guest', 'Response should be "hello Guest"'); // prueba el texto
-        done(); // indica que terminó la prueba asincrónica
+        assert.equal(res.status, 200, 'Response status should be 200');
+        assert.equal(res.text, 'hello Guest', 'Response should be "hello Guest"');
+        done();
       });
   });
 });
+
 
     // #2
     test('Test GET /hello with your name', function (done) {
